@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+<table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>Status</th>
+            <th>Country Code</th>
+            <th>Phone num.</th>
+        </tr>
+    </thead>
+</table>
+<script type="application/javascript">
+    $(document).ready( function () {
+        var table = $('#table_id').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "searching": true,
+            ajax: {
+                url: '/api/number',
+                dataSrc: 'data',
+            },
+            columns: [
+                { data: 'Country' },
+                { data: 'status' },
+                { data: 'Country Code' },
+                { data: 'Number' }
+            ]
+        });
+        yadcf.init(table, [
+            {
+                column_number: 0,
+                filter_type: "select",
+                data: [
+                    {
+                        value: '237',
+                        label: 'Cameroon'
+                    }, {
+                        value: '251',
+                        label: 'Ethiopia'
+                    }, {
+                        value: '212',
+                        label: 'Morocco'
+                    }, {
+                        value: '258',
+                        label: 'Mozambique'
+                    }, {
+                        value: '256',
+                        label: 'Uganda'
+                    }
+                ]
+            },
+            {
+                column_number: 1,
+                filter_type: "select",
+                data: [
+                    {
+                        value: 'OK',
+                        label: 'Valid'
+                    }, {
+                        value: 'NOK',
+                        label: 'Not Valid'
+                    }
+                ]
+            }
+        ]);
+    } );
+</script>
+{% endblock %}
