@@ -15,6 +15,6 @@ This application build on [Symfony framework](https://symfony.com/) with [Symfon
 * Folder `src/Services` contain all business logic, That was designed based on **DDD** concept.
 * Folder `src/Services/Number/Application` That represent the application layer in **DDD** and contain just one query.
 * Folder `src/Services/Number/Domain` Contain all number domain implementation (models & value object and repositories contract).
-* Folder `src/Services/Number/Infrastructure` Repositories for numbers (query from sqlite) and country (query from json file) implementation.
+* Folder `src/Services/Number/Infrastructure` Repositories for numbers (query from sqlite) and country (query from json file).
 
 **Enjoy!**
