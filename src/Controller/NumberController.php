@@ -24,11 +24,19 @@ class NumberController extends AbstractController
         GetNumbersQuery $getNumbersQuery,
         ListNumbersHydrator $listNumbersHydrator
     ): Response {
+        $countryCode = null;
+        if (!empty($request->query->get('columns')[0]['search']['value'])) {
+            $countryCode = $request->query->get('columns')[0]['search']['value'];
+        }
+        $validState = null;
+        if (!empty($request->query->get('columns')[1]['search']['value'])) {
+            $validState = $request->query->get('columns')[1]['search']['value'];
+        }
         list($phoneNumbers, $count) = $getNumbersQuery->execut(
             $request->query->get('length'),
             $request->query->get('start'),
-            (int) $request->query->get('columns')[0]['search']['value'],
-            match ($request->query->get('columns')[1]['search']['value']) {
+            (int) $countryCode,
+            match ($validState) {
                 'OK' => true,
                 'NOK' => false,
                 default => null,
