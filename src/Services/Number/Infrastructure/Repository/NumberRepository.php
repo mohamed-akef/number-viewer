@@ -3,6 +3,7 @@
 namespace App\Services\Number\Infrastructure\Repository;
 
 use App\Services\Number\Domain\Model\Number;
+use App\Services\Number\Domain\Repository\NumberRepositoryInterface;
 use App\Services\Number\Infrastructure\Mapper\AggregateMapper;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -13,7 +14,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Number[]    findAll()
  * @method Number[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class NumberRepository extends ServiceEntityRepository
+class NumberRepository extends ServiceEntityRepository implements NumberRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry, protected AggregateMapper $aggregateMapper)
     {

@@ -2,18 +2,14 @@
 
 namespace App\Services\Number\Infrastructure\Repository;
 
+use App\Services\Number\Domain\Repository\CountryRepositoryInterface;
 use App\Services\Number\Domain\ValueObject\Country;
 use JetBrains\PhpStorm\Pure;
 
-class CountryRepository
+class CountryRepository implements CountryRepositoryInterface
 {
 
     protected array $unitOfWork = [];
-
-    public function getAll(): array
-    {
-        dd($this->loadResource());
-    }
 
     public function getByCode($code): Country
     {
@@ -34,6 +30,9 @@ class CountryRepository
         return new Country($country['name'], $country['code'], $country['matchExpression']);
     }
 
+    /**
+     * @note used static call to not use framework helper in domain
+     */
     private function loadResource()
     {
         return json_decode(file_get_contents(__DIR__.'/../../../../../database/countries.json'), true);
