@@ -46,9 +46,9 @@ class NumberController extends AbstractController
         return $this->json([
             'status' => 'success',
             'data' => $listNumbersHydrator->hydrate($phoneNumbers),
-            "draw"=> $request->query->get('draw'),
-            "recordsTotal"=> 41,
-            "recordsFiltered"=> $count
+            "draw" => $request->query->get('draw'),
+            "recordsTotal" => 41,
+            "recordsFiltered" => $count
         ]);
     }
 }

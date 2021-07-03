@@ -14,7 +14,7 @@ class AggregateMapper
 
     public function mapList(array $numbers): array
     {
-        foreach ($numbers as $number){
+        foreach ($numbers as $number) {
             $this->injectionCountry($number);
         }
         return $numbers;

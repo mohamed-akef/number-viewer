@@ -43,7 +43,7 @@ class Number
 
     public function getPhone($withoutCountryCode = false): ?string
     {
-        return $withoutCountryCode?substr($this->phone,6):$this->phone;
+        return $withoutCountryCode ? substr($this->phone, 6) : $this->phone;
     }
 
     public function getCountry(): Country
@@ -58,11 +58,11 @@ class Number
 
     public function getCountryCode(): int
     {
-        return (int) substr($this->getPhone(),1, 3);
+        return (int) substr($this->getPhone(), 1, 3);
     }
 
     public function isValid(): bool
     {
-        return (bool) preg_match("/".$this->getCountry()->getMatchExpression()."/", $this->getPhone());
+        return (bool) preg_match("/" . $this->getCountry()->getMatchExpression() . "/", $this->getPhone());
     }
 }

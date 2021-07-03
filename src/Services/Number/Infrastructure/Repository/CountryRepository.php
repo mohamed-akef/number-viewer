@@ -14,7 +14,7 @@ class CountryRepository implements CountryRepositoryInterface
     public function getByCode($code): Country
     {
         $countries = $this->loadResource();
-        foreach ($countries as $country){
+        foreach ($countries as $country) {
             if ($code == $country['code']) {
                 if (!array_key_exists($code, $this->unitOfWork)) {
                     $this->unitOfWork[$code] = $this->mapToDomain($country);
@@ -35,6 +35,6 @@ class CountryRepository implements CountryRepositoryInterface
      */
     private function loadResource()
     {
-        return json_decode(file_get_contents(__DIR__.'/../../../../../database/countries.json'), true);
+        return json_decode(file_get_contents(__DIR__ . '/../../../../../database/countries.json'), true);
     }
 }

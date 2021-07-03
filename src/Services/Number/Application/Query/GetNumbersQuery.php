@@ -7,9 +7,8 @@ use App\Services\Number\Domain\Repository\NumberRepositoryInterface;
 class GetNumbersQuery
 {
 
-    public function __construct(
-        protected NumberRepositoryInterface $numberRepo,
-    ) {
+    public function __construct(protected NumberRepositoryInterface $numberRepo)
+    {
     }
 
     public function execut(
@@ -28,6 +27,6 @@ class GetNumbersQuery
                 }
             }
         }
-        return [array_slice($numbers, 0, $limit), count($numbers)+$offset];
+        return [array_slice($numbers, 0, $limit), count($numbers) + $offset];
     }
 }
