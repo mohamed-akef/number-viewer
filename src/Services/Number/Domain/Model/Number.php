@@ -43,7 +43,7 @@ class Number
 
     public function getPhone($withoutCountryCode = false): ?string
     {
-        return $withoutCountryCode?substr($this->phone,5):$this->phone;
+        return $withoutCountryCode?substr($this->phone,6):$this->phone;
     }
 
     public function getCountry(): Country
