@@ -3,12 +3,12 @@
 namespace App\Services\Number\Infrastructure\Mapper;
 
 use App\Services\Number\Domain\Model\Number;
-use App\Services\Number\Infrastructure\Repository\CountryRepository;
+use App\Services\Number\Domain\Repository\CountryRepositoryInterface;
 
 class AggregateMapper
 {
 
-    public function __construct(protected CountryRepository $countryRepository)
+    public function __construct(protected CountryRepositoryInterface $countryRepository)
     {
     }
 

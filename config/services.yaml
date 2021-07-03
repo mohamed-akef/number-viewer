@@ -27,5 +27,7 @@ services:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
 
+    App\Services\Number\Domain\Repository\CountryRepositoryInterface: '@App\Services\Number\Infrastructure\Repository\CountryRepository'
+    App\Services\Number\Domain\Repository\NumberRepositoryInterface: '@App\Services\Number\Infrastructure\Repository\NumberRepository'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

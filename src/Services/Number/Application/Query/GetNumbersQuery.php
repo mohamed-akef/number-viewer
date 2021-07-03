@@ -2,13 +2,13 @@
 
 namespace App\Services\Number\Application\Query;
 
-use App\Services\Number\Infrastructure\Repository\NumberRepository;
+use App\Services\Number\Domain\Repository\NumberRepositoryInterface;
 
 class GetNumbersQuery
 {
 
     public function __construct(
-        protected NumberRepository $numberRepo,
+        protected NumberRepositoryInterface $numberRepo,
     ) {
     }
 
