@@ -1,37 +1,20 @@
-# Symfony Docker
+# Number Viewer
 
-A [Docker](https://www.docker.com/)-based installer and runtime for the [Symfony](https://symfony.com) web framework, with full [HTTP/2](https://symfony.com/doc/current/weblink.html), HTTP/3 and HTTPS support.
-
-![CI](https://github.com/dunglas/symfony-docker/workflows/CI/badge.svg)
+This application build on [Symfony framework](https://symfony.com/) with [Symfony Docker](https://github.com/dunglas/symfony-docker) to as infrastructure
 
 ## Getting Started
 
 1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/)
-2. Run `docker-compose build --pull --no-cache` to build fresh images
-3. Run `docker-compose up` (the logs will be displayed in the current shell)
+2. Run `SYMFONY_VERSION=5.2.* docker-compose up --build` to state the contender
 4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
 
-## Features
+## Application structure
 
-* Production, development and CI ready
-* Automatic HTTPS (in dev and in prod!)
-* HTTP/2, HTTP/3 and [Preload](https://symfony.com/doc/current/web_link.html) support
-* Built-in [Mercure](https://symfony.com/doc/current/mercure.html) hub
-* [Vulcain](https://vulcain.rocks) support
-* Just 2 services (PHP FPM and Caddy server)
-* Super-readable configuration
+* Folder `src` contains all app implantation.
+* `src/Controller/NumberController` contain the http controller with routes (one for render html and other for API).
+* Folder `src/Services` contain all business logic, That was designed based on **DDD** concept.
+* Folder `src/Services/Number/Application` That represent the application layer in **DDD** and contain just one query.
+* Folder `src/Services/Number/Domain` Contain all number domain implementation (models & value object and repositories contract).
+* Folder `src/Services/Number/Infrastructure` Repositories for numbers (query from sqlite) and country (query from json file) implementation.
 
 **Enjoy!**
-
-## Docs
-
-1. [Build options](docs/build.md)
-2. [Using Symfony Docker with an existing project](docs/existing-project.md)
-3. [Support for extra services](docs/extra-services.md)
-4. [Deploying in production](docs/production.md)
-5. [Installing Xdebug](docs/xdebug.md)
-6. [Troubleshooting](docs/troubleshooting.md)
-
-## Credits
-
-Created by [Kévin Dunglas](https://dunglas.fr), co-maintained by [Maxime Helias](https://twitter.com/maxhelias) and sponsored by [Les-Tilleuls.coop](https://les-tilleuls.coop).
