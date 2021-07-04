@@ -1,6 +1,6 @@
 # Number Viewer
 
-This application build on [Symfony framework](https://symfony.com/) with [Symfony Docker](https://github.com/dunglas/symfony-docker) to as infrastructure
+This application build on [Symfony framework](https://symfony.com/) with [Symfony Docker](https://github.com/dunglas/symfony-docker) as infrastructure
 
 ## Getting Started
 
